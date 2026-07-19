@@ -1,0 +1,24 @@
+name: CI PIPELINE
+
+on:
+  push:
+    branches: [ mian ]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+  steps:
+    - name: Checkout code
+      uses: actions/checkout
+    
+    - name: Set up Node.js
+      uses: actions/setup-node@v3
+      with: 
+        node-verison: 16
+
+    - name: Install dependencies
+      run: npm instal 
+
+    - name: Rust tests
+      run: npm test
